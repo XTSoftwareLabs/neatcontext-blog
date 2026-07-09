@@ -1,7 +1,7 @@
 title: NeatContext Blog
 description: Notes, updates, and technical writing from NeatContext.
-url: "https://xtsoftwarelabs.github.io"
-baseurl: "/neatcontext-blog"
+url: "https://blog.neatcontext.com"
+baseurl: ""
 lang: en
 timezone: Asia/Shanghai
 
