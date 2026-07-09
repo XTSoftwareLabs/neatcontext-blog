@@ -155,4 +155,6 @@ We are still early, and we are building this with real operational workflows in 
 
 Give NeatContext a try: https://www.neatcontext.com
 
+You can also jump into the hands-on demo: https://github.com/XTSoftwareLabs/neatcontext-demo
+
 We would love to hear your thoughts, feedback, and ideas.
