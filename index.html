@@ -1,0 +1,30 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero">
+  <p class="eyebrow">NeatContext Blog</p>
+  <h1>Writing about context engineering, product updates, and technical decisions.</h1>
+  <p class="lede">Publish posts as markdown files in <code>_posts</code>. GitHub Pages builds them into this website.</p>
+</section>
+
+<section class="post-list" aria-labelledby="latest-posts">
+  <h2 id="latest-posts">Latest Posts</h2>
+
+  {% if site.posts.size > 0 %}
+    {% for post in site.posts %}
+      <article class="post-card">
+        <a href="{{ post.url | relative_url }}">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+          <h3>{{ post.title }}</h3>
+          {% if post.excerpt %}
+            <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
+          {% endif %}
+        </a>
+      </article>
+    {% endfor %}
+  {% else %}
+    <p>No posts yet. Add one under <code>_posts/YYYY-MM-DD-title.md</code>.</p>
+  {% endif %}
+</section>

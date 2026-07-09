@@ -1,0 +1,24 @@
+title: NeatContext Blog
+description: Notes, updates, and technical writing from NeatContext.
+url: "https://xtsoftwarelabs.github.io"
+baseurl: "/neatcontext-blog"
+lang: en
+timezone: Asia/Shanghai
+
+permalink: /:categories/:year/:month/:day/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
