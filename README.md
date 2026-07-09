@@ -1,6 +1,8 @@
 # NeatContext Blog
 
-This repository is a Jekyll blog configured for GitHub Pages. Posts are written in markdown and published as web pages.
+This repository hosts the official blog for [NeatContext](https://www.neatcontext.com), a product focused on making context easier to capture, organize, and use across knowledge work.
+
+The blog is configured with Jekyll and GitHub Pages. Posts are written in markdown and published as web pages.
 
 ## Write a Post
 
