@@ -98,6 +98,10 @@ h1 {
   font-size: clamp(42px, 8vw, 78px);
 }
 
+.hero .hero-title {
+  font-size: clamp(34px, 5vw, 52px);
+}
+
 h2 {
   margin-bottom: 22px;
   font-size: 28px;
