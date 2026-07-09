@@ -14,4 +14,4 @@ Teams can add, remove, and update domain knowledge as their systems change. They
 
 NeatContext is designed to be lightweight, flexible, and easy to start with. Our goal is to help engineering and operations teams use AI with the context they already have, while keeping them in control of their knowledge and workflow.
 
-Learn more at https://www.neatcontext.com.
+Learn more at [neatcontext.com](https://www.neatcontext.com).
