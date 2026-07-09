@@ -4,27 +4,14 @@ title: About
 permalink: /about/
 ---
 
-# About
+# About NeatContext
 
-This blog is powered by Jekyll and GitHub Pages. Write posts in markdown, commit them to the repository, and GitHub Pages will publish the site.
+NeatContext is a local-first desktop app built to help teams bring the right domain knowledge to LLMs for operational work, especially incident handling.
 
-## Publishing a Post
+We believe AI is most useful when it understands the specific systems, services, runbooks, troubleshooting guides, logs, and workflows that each team depends on. Instead of forcing teams to move all of their knowledge into another centralized platform, NeatContext lets teams organize and use their own context from their local machine.
 
-Create a file in `_posts` using this naming format:
+Teams can add, remove, and update domain knowledge as their systems change. They can connect to internal tools, public platforms, documentation systems, incident systems, and custom workflows through extensions. They can also choose how AI is used, whether through a public LLM API, a company gateway, or a local model.
 
-```text
-YYYY-MM-DD-your-post-title.md
-```
+NeatContext is designed to be lightweight, flexible, and easy to start with. Our goal is to help engineering and operations teams use AI with the context they already have, while keeping them in control of their knowledge and workflow.
 
-Add front matter at the top:
-
-```yaml
----
-layout: post
-title: "Your Post Title"
-date: 2026-07-09
-categories: updates
----
-```
-
-Then write the post body in markdown.
+Learn more at https://www.neatcontext.com.
