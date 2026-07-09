@@ -153,8 +153,8 @@ That is the reason we created NeatContext.
 
 We are still early, and we are building this with real operational workflows in mind. Our goal is not to replace your incident management platform, your knowledge base, or your internal systems. Our goal is to help your team bring the right domain knowledge to AI so it can actually be useful when real incidents happen.
 
-Give NeatContext a try: https://www.neatcontext.com
+Give NeatContext a try: [neatcontext.com](https://www.neatcontext.com)
 
-You can also jump into the hands-on demo: https://github.com/XTSoftwareLabs/neatcontext-demo
+You can also jump into the hands-on demo: [github.com/XTSoftwareLabs/neatcontext-demo](https://github.com/XTSoftwareLabs/neatcontext-demo)
 
 We would love to hear your thoughts, feedback, and ideas.
