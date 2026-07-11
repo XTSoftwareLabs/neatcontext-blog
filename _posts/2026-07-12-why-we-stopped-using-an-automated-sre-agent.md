@@ -15,22 +15,25 @@ After months of tuning, debugging prompts, and dealing with 3:00 AM outages made
 
 ## The Three Fatal Flaws of Autonomous SRE Agents
 
-- The "Haystack" Firehose & Signal Dilution
-When an incident occurs in a modern cloud-native environment, systems emit an overwhelming stream of telemetry. A single microservice failure can trigger database connection spikes, network latency alerts, and cascading downstream drop-offs.
+- **The "Haystack" Firehose & Signal Dilution**
 
-Our automated agent was designed to ingest everything dynamically. When a high-severity alert triggered, it scraped thousands of lines of raw, unfiltered logs, metrics, and cloud traces across the cluster.
+    When an incident occurs in a modern cloud-native environment, systems emit an overwhelming stream of telemetry. A single microservice failure can trigger database connection spikes, network latency alerts, and cascading downstream drop-offs.
 
-The Reality: The agent experienced acute information overload. Instead of identifying the root cause, it struggled with signal dilution. It would link a completely unrelated database connection blip from twelve hours prior to a localized payment-gateway timeout happening right now. The agent didn't lack data; it lacked the human intuition required to ignore the noise.
+    Our automated agent was designed to ingest everything dynamically. When a high-severity alert triggered, it scraped thousands of lines of raw, unfiltered logs, metrics, and cloud traces across the cluster.
 
-- The Illusion of RAG (Retrieval-Augmented Generation)
-To help the agent understand our environment, we connected it via RAG to our internal documentation, deployment timelines, and post-mortem wikis.
+    **The Reality:** The agent experienced acute information overload. Instead of identifying the root cause, it struggled with signal dilution. It would link a completely unrelated database connection blip from twelve hours prior to a localized payment-gateway timeout happening right now. The agent didn't lack data; it lacked the human intuition required to ignore the noise.
 
-The Reality: AI is only as accurate as your stale documentation. In a fast-moving engineering organization, system boundaries shift daily. A network routing rule changed last Tuesday, but the internal runbook wasn't updated until Friday. The agent faithfully retrieved the old document and diagnosed the problem based on stale assumptions. The agent didn’t hallucinate the system architecture; the source material itself was wrong.
+- **The Illusion of RAG (Retrieval-Augmented Generation)**
 
-- The "Confused Deputy" Risk
-As SRE tools evolve, there is pressure to give them write-access—allowing them to execute CLI commands, restart Kubernetes pods, or rollback deployments autonomously.
+    To help the agent understand our environment, we connected it via RAG to our internal documentation, deployment timelines, and post-mortem wikis.
 
-The Reality: Without strict boundaries, an agent lacks an abstention threshold. When faced with a novel edge case, it does not say "I don't know." It guesses. In a production environment, an incorrect guess isn’t a formatting bug; it is a catastrophic cascading failure. We quickly realized that keeping an agent completely autonomous was a liability we couldn't afford.
+    **The Reality:** AI is only as accurate as your stale documentation. In a fast-moving engineering organization, system boundaries shift daily. A network routing rule changed last Tuesday, but the internal runbook wasn't updated until Friday. The agent faithfully retrieved the old document and diagnosed the problem based on stale assumptions. The agent didn’t hallucinate the system architecture; the source material itself was wrong.
+
+- **The "Confused Deputy" Risk**
+
+    As SRE tools evolve, there is pressure to give them write-access—allowing them to execute CLI commands, restart Kubernetes pods, or rollback deployments autonomously.
+
+    **The Reality:** Without strict boundaries, an agent lacks an abstention threshold. When faced with a novel edge case, it does not say "I don't know." It guesses. In a production environment, an incorrect guess isn’t a formatting bug; it is a catastrophic cascading failure. We quickly realized that keeping an agent completely autonomous was a liability we couldn't afford.
 
 ## The Paradigm Shift: Context is the key to succeed
 
