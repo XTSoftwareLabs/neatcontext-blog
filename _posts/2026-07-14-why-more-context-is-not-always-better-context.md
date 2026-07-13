@@ -11,7 +11,7 @@ The instinct behind this proposal is right. An AI system should not reason about
 
 The problem is the jump from **access to everything** to **put everything in context**. Those are not the same design.
 
-Broad access can make useful evidence discoverable. Indiscriminate inclusion can bury that evidence, mix incompatible authorities, expose unnecessary data, and make a confident answer harder to audit. A specialized local model can improve privacy and domain fluency, but it does not decide which facts are relevant, current, or authoritative.
+Broad access can make useful evidence discoverable. Indiscriminate inclusion can bury that evidence, mix incompatible authorities, expose unnecessary data, and make a confident answer harder to audit. Running the model locally can improve privacy and control. Fine-tuning that model with domain knowledge still does not decide which facts are relevant, current, or authoritative.
 
 The practical goal is not maximum context. It is the smallest defensible context for the task.
 
@@ -49,18 +49,22 @@ There is also a governance problem in sending everything. If source material con
 
 For high-impact decisions, an AI response should be an analysis aid, not the final legal determination. The context should contain the relevant primary text, its jurisdiction and effective date, and links that a qualified reviewer can verify.
 
-## A local, specialized model helps—but solves a different problem
+## Run locally when practical—but keep changing knowledge outside the model
 
-Running a model locally can be a strong choice. It can keep sensitive material on controlled infrastructure, reduce dependence on an external service, and allow teams to choose a model that fits their hardware and latency needs. Fine-tuning may also improve terminology, output structure, or performance on a stable, well-defined task.
+Running a model locally is a strong choice. It can keep sensitive material on controlled infrastructure, reduce dependence on an external service, and allow teams to choose a model that fits their hardware and latency needs. When an organization has the hardware and operational capacity, we think local inference should be preferred—especially for sensitive code and internal knowledge.
 
-But specialization is not the same as current knowledge.
+That is separate from specializing or fine-tuning the model with the organization's knowledge.
 
-Facts embedded in model weights are difficult to inspect and expensive to update every time a requirement, dependency, or regulation changes. A [2025 comparison of long-context and retrieval approaches](https://arxiv.org/abs/2503.16071) found that long context was better suited to some global questions, while retrieval was more competitive for questions targeting specific information. The researchers then combined retrieval-informed data generation with tuning a smaller model. The result is a useful reminder that specialization and retrieval can complement each other; tuning should not be treated as a replacement for fresh, inspectable sources.
+Fine-tuning takes a snapshot of today's code, requirements, policies, or regulations and embeds patterns from that snapshot into model weights. When a requirement changes next week, the old knowledge does not become visibly obsolete. There is no source file to diff, effective date to check, or citation to follow. The team must identify the change, rebuild training data, tune again, evaluate for regressions, and redeploy. Until then, the model can confidently apply stale knowledge.
+
+Fine-tuning can still be useful for stable behavior: terminology, output structure, tool-use patterns, or a narrowly defined task. Frequently changing facts and rules should remain in versioned sources and enter the model as runtime context.
+
+A [2025 comparison of long-context and retrieval approaches](https://arxiv.org/abs/2503.16071) found that long context was better suited to some global questions, while retrieval was more competitive for questions targeting specific information. The researchers then combined retrieval-informed data generation with tuning a smaller model. The result is a useful reminder that tuning and retrieval solve different problems and can complement each other. Tuning should shape how a model works; fresh, inspectable sources should determine what it knows about the current situation.
 
 A useful division of responsibility is:
 
-- use the model for language, patterns, and reasoning;
-- use selected sources for current facts and constraints;
+- use a local model for language, patterns, and reasoning when practical;
+- use selected, versioned sources for current facts and constraints;
 - use tools and tests for verification;
 - keep accountable decisions with people.
 
@@ -107,7 +111,7 @@ The important part is not the product name. It is the separation of concerns:
 
 - broad sources for discovery;
 - a narrow, reviewable packet for reasoning;
-- a model chosen according to the organization's privacy and capability needs;
+- a local model where practical, or a controlled hosted model where necessary;
 - human review for consequential decisions.
 
 The original proposal correctly recognizes that AI needs code, requirements, and regulatory knowledge. The adjustment is architectural: give the system a way to find everything, but do not ask the model to reason over everything at once.
