@@ -5,9 +5,7 @@ date: 2026-07-14
 categories: ai
 ---
 
-A thoughtful comment on an earlier discussion proposed a seemingly complete setup for AI-assisted engineering:
-
-> Give the AI access to the entire codebase, business requirements, technical requirements, and applicable laws and regulations. Then use a local, specialized model to refine the context further.
+A recent discussion raised a sensible idea for AI-assisted engineering: make the organization's code and domain material broadly available to the AI, then use a local model tailored to the domain.
 
 The instinct behind this proposal is right. An AI system should not reason about a business-critical change from one source file and a short prompt. It needs domain knowledge.
 
