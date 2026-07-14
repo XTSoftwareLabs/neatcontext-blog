@@ -11,7 +11,7 @@ The instinct behind this proposal is right. An AI system should not reason about
 
 The problem is the jump from **access to everything** to **put everything in context**. Those are not the same design.
 
-Broad access can make useful evidence discoverable. Indiscriminate inclusion can bury that evidence, mix incompatible sources, expose unnecessary data, and make a confident answer harder to audit. Running the model locally can improve privacy and control. Fine-tuning that model with domain knowledge still does not decide which facts are relevant, current, or authoritative.
+Broad access can make useful evidence discoverable. Indiscriminate inclusion can bury that evidence, mix incompatible sources, expose unnecessary data, and make a confident answer harder to audit. Running the model locally can improve privacy and control. Encoding domain knowledge into model weights still does not decide which facts are relevant, current, or authoritative.
 
 The practical goal is not maximum context. It is the smallest defensible context for the task.
 
@@ -53,13 +53,13 @@ For sensitive work, the context should contain only the necessary source materia
 
 Running a model locally is a strong choice. It can keep sensitive material on controlled infrastructure, reduce dependence on an external service, and allow teams to choose a model that fits their hardware and latency needs. When an organization has the hardware and operational capacity, we think local inference should be preferred—especially for sensitive code and internal knowledge.
 
-That is separate from specializing or fine-tuning the model with the organization's knowledge.
+That is separate from embedding the organization's knowledge into the model's weights.
 
-Fine-tuning takes a snapshot of today's code, requirements, procedures, support playbooks, or product assumptions and embeds patterns from that snapshot into model weights. When a requirement changes next week, the old knowledge does not become visibly obsolete. There is no source file to diff, review date to check, or citation to follow. The team must identify the change, rebuild training data, tune again, evaluate for regressions, and redeploy. Until then, the model can confidently apply stale knowledge.
+Doing so takes a snapshot of today's code, requirements, procedures, support playbooks, or product assumptions and embeds patterns from that snapshot into model weights. When a requirement changes next week, the old knowledge does not become visibly obsolete. There is no source file to diff, review date to check, or citation to follow. The team must identify the change, rebuild training data, update the model, evaluate for regressions, and redeploy. Until then, the model can confidently apply stale knowledge.
 
-Fine-tuning can still be useful for stable behavior: terminology, output structure, tool-use patterns, or a narrowly defined task. Frequently changing facts and rules should remain in versioned sources and enter the model as runtime context.
+Changing facts and rules should remain in versioned sources and enter the model as runtime context.
 
-A 2026 study of [lifelong knowledge editing](https://www.sciencedirect.com/science/article/pii/S0020025526007796) describes the core problem directly: knowledge in a deployed model remains static, while retraining or fine-tuning is too costly for frequent updates. The paper proposes a more efficient editing method, but it also documents how repeated weight changes can accumulate interference and distribution drift. Weight updates are not equivalent to updating a document store. Tuning should shape how a model works; fresh, inspectable sources should determine what it knows about the current situation.
+A 2026 study of [lifelong knowledge editing](https://www.sciencedirect.com/science/article/pii/S0020025526007796) describes the core problem directly: knowledge in a deployed model remains static, while frequent parameter updates are costly. The paper proposes a more efficient editing method, but it also documents how repeated weight changes can accumulate interference and distribution drift. Weight updates are not equivalent to updating a document store. For changing organizational knowledge, fresh, inspectable sources should determine what the model knows about the current situation.
 
 A useful division of responsibility is:
 
