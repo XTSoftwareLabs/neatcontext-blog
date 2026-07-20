@@ -78,11 +78,11 @@ Code, documentation, tickets, support transcripts, and imported files are inputs
 
 This does not mean an AI tool should never search broadly. It means discovery should not imply trust, and read access should not imply permission to act. Context sources need boundaries, sensitive operations need separate authorization, and retrieved content should retain its origin.
 
-## Build a context packet, not a context dump
+## Build a working set, not a context dump
 
 Consider a request to change a refund workflow for one product. A context dump might include every service, every product requirement, years of support conversations, customer records, and unrelated contracts.
 
-A task-specific context packet would be smaller and more explicit:
+A task-specific working set would be smaller and more explicit:
 
 - the request, affected product, and decision to be made;
 - the active refund policy and its owner;
@@ -92,7 +92,7 @@ A task-specific context packet would be smaller and more explicit:
 - excluded sources and the reason they were excluded;
 - expected validation, such as tests and review by the product or data owner.
 
-The wider sources remain available for search. They are promoted into the working packet only when there is a reason to include them. The packet can change as the investigation reveals a dependency, but every addition is visible.
+The wider sources remain available for search. They are promoted into the working set only when there is a reason to include them. The working set can change as the investigation reveals a dependency, but every addition is visible.
 
 This approach has several practical properties:
 
@@ -101,17 +101,19 @@ This approach has several practical properties:
 3. **Freshness can be checked.** Time-sensitive material carries a version or effective date.
 4. **Contradictions remain visible.** The system can report disagreement instead of inventing consensus.
 5. **Sensitive data is minimized.** Only material necessary for the task enters the working set.
-6. **The model is replaceable.** The same reviewed packet can be used with a local or hosted model.
+6. **The model is replaceable.** The same reviewed working set can be used with a local or hosted model.
 
 ## The approach we are taking
 
-This is the context model we have been exploring with [NeatContext](https://www.neatcontext.com): keep knowledge close to the teams and systems that own it, assemble a bounded working set for a specific task, and let the engineer decide what is included before it reaches an LLM.
+This is the context model we have been exploring with [NeatContext](https://www.neatcontext.com): keep knowledge close to the teams and systems that own it, define a bounded working set for a specific task, and let the engineer decide what is in scope before their AI starts reasoning.
+
+Worth being precise about one design choice. NeatContext does not include an AI model, so it never reads your sources, ranks them, or summarizes them into a package before your AI sees them. It scopes the boundary and hands the selected profiles, folders, and read-only tools to the AI client the engineer is already using, which does the reading and the reasoning itself. That keeps a second model out of the chain of custody, avoids a summarization step nobody reviewed, and means the working set is defined by a person rather than inferred by a machine.
 
 The important part is not the product name. It is the separation of concerns:
 
 - broad sources for discovery;
-- a narrow, reviewable packet for reasoning;
-- a local model where practical, or a controlled hosted model where necessary;
+- a narrow, reviewable working set for reasoning;
+- a model you already trust — local where practical, or a controlled hosted one where necessary;
 - human review for consequential decisions.
 
 The original proposal correctly recognizes that AI needs code, requirements, and internal knowledge. The adjustment is architectural: give the system a way to find what it is allowed to use, but do not ask the model to reason over everything at once.

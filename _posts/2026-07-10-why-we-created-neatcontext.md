@@ -77,9 +77,11 @@ NeatContext is a desktop app designed for operational work and incident handling
 
 It runs on your local machine. Your domain knowledge stays local unless you choose otherwise. Teams can organize the knowledge they need, add or remove context during an investigation, and connect to the systems they already use through extensions.
 
+One thing NeatContext deliberately is not: another AI to talk to. There is no chat window in the app, and no AI model inside it. You keep working in the AI client you already use — Claude Code, Codex CLI, Claude Desktop, or ChatGPT Desktop. NeatContext connects to it locally and hands it your team's context; your client reads, searches, and answers with its own model.
+
 The idea is simple:
 
-**Make it easy to give LLMs the right operational context, without forcing teams to centralize all their knowledge into another platform.**
+**Make it easy to give the AI you already use the right operational context, without forcing teams to centralize all their knowledge into another platform.**
 
 With NeatContext, every team can have its own domain knowledge. A service team can keep its own troubleshooting guides, runbooks, notes, logs, and relevant documents. Another team can organize things differently. During an incident, engineers can adjust the context based on what they are investigating.
 
@@ -89,7 +91,7 @@ The context can evolve naturally with the team.
 
 Operational knowledge rarely lives in one place.
 
-That is why NeatContext is designed around extensions. Extensions can help connect to the systems you already have, whether they are public tools, internal platforms, knowledge base systems, incident management systems, work item trackers, or service-specific APIs.
+That is why NeatContext is designed around extensions. Extensions are read-only connectors to the systems you already have, whether they are public tools, internal platforms, knowledge base systems, incident management systems, work item trackers, or service-specific APIs. You pick which ones a given context may use, and their credentials stay in your OS keychain rather than being handed to the AI.
 
 You can choose where your domain knowledge comes from.
 
@@ -101,13 +103,11 @@ Instead, it helps you assemble the right context when you need it.
 
 ## You control how knowledge is shared with AI
 
-Different companies have different requirements for AI usage.
+Different companies have different requirements for AI usage. Some standardize on one assistant. Some route everything through a company gateway. Some are still deciding.
 
-Some teams are comfortable using a public API endpoint for LLM access. Some teams want to route requests through a company gateway. Some teams prefer to use a local model so sensitive knowledge stays entirely within their own environment.
+NeatContext stays out of that decision. Since the app does not include an AI model, there is no NeatContext endpoint to approve, no model configuration to manage, and no LLM credential stored anywhere in it. Whatever AI your team is already allowed to use remains the AI that answers.
 
-NeatContext is designed to support that flexibility.
-
-You decide what LLM endpoint to use. You decide what systems to connect. You decide what knowledge to include. You decide how much context is shared and where it goes.
+You decide what systems to connect. You decide what knowledge to include. You decide which AI client receives it and how much of it is in scope for a given investigation. The context boundary is read-only: NeatContext hands over paths and read-only tools, never write access to your systems, and it keeps a local activity log of what was actually served.
 
 We believe this control matters, especially for operational work.
 
@@ -127,17 +127,15 @@ We want the first step to be simple.
 
 ## A NeatContext example
 
-The following example shows how NeatContext can guide incident response differently depending on the domain knowledge available to each team.
+Consider one incident — elevated 5xx on a checkout API — and two teams asking the same AI client about it.
 
-The same incident can lead to different recommendations for different teams. For the payment team, the right recommendation is not to keep debugging payment logic. The available context points to an infrastructure-owned problem, so the correct response is to hand the incident off to the infrastructure team.
+The payments engineer asks with their payments context connected. Their profile and runbooks say what payment-side saturation looks like and who owns the shared connection pool. The answer that comes back is not a longer debugging checklist: the evidence points at an infrastructure-owned problem, so the useful next step is a handoff to the infrastructure team with the incident link, the first pool-error log line, and the deploy timeline.
 
-![NeatContext analysis for the payment team showing that the incident should be handed off to infrastructure]({{ "/assets/images/paymentteam.png" | relative_url }})
+The infrastructure engineer asks the same question with their own context connected. Now the relevant knowledge includes the pool configuration history and a troubleshooting guide that explicitly forbids failing over a saturated-but-healthy primary. The answer names the specific change to revert and the action to avoid.
 
-For the infrastructure team, the same incident leads to a different result. With infrastructure-specific knowledge, NeatContext can identify the operational action the team should take.
+Same incident, same AI client, same underlying model. The difference is which team's knowledge was in scope — and, just as importantly, which knowledge was not.
 
-![NeatContext analysis for the infrastructure team showing an actionable infrastructure response]({{ "/assets/images/infrateam.png" | relative_url }})
-
-This is why the right context matters. NeatContext is not only summarizing an incident; it is helping match the next step to the team, the system, and the situation.
+This is why the right context matters. NeatContext is not summarizing the incident for you; it is making sure the AI you already trust is reasoning over the material your team would have handed a colleague.
 
 ## Our belief
 
@@ -147,11 +145,11 @@ But we do not believe the answer is simply “add an LLM” to every incident pl
 
 The harder and more important problem is context.
 
-The LLM needs the right knowledge, at the right time, for the right team, with the right level of control. That context must be flexible, local when needed, easy to update, and connected to the systems teams already use.
+The AI needs the right knowledge, at the right time, for the right team, with the right level of control. That context must be flexible, local when needed, easy to update, and connected to the systems teams already use.
 
 That is the reason we created NeatContext.
 
-We are still early, and we are building this with real operational workflows in mind. Our goal is not to replace your incident management platform, your knowledge base, or your internal systems. Our goal is to help your team bring the right domain knowledge to AI so it can actually be useful when real incidents happen.
+We are still early, and we are building this with real operational workflows in mind. Our goal is not to replace your incident management platform, your knowledge base, your internal systems — or the AI assistant your team already works in. Our goal is to help your team bring the right domain knowledge to that assistant so it can actually be useful when real incidents happen.
 
 Give NeatContext a try: [neatcontext.com](https://www.neatcontext.com)
 

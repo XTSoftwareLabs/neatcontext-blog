@@ -43,7 +43,9 @@ Instead of letting an automated platform-level agent crawl our environment and d
 
 This is exactly why we shifted toward lightweight, desktop-first context utilities like [NeatContext](https://www.neatcontext.com).
 
-Instead of acting as a heavy background scraper, tools like [NeatContext](https://www.neatcontext.com) allow on-call engineers to build explicit Markdown-based domain profiles. When a specific service drops, the engineer uses a dedicated team profile to package only the precise directories, local deployment configurations, and relevant error logs into an airtight, read-only boundary.
+To be clear about what this is: [NeatContext](https://www.neatcontext.com) is not another AI, and it does not contain an AI model. It connects locally to the AI client the engineer is already working in and hands that client a scoped context. The reasoning still happens where it always did; only the inputs change.
+
+Instead of acting as a heavy background scraper, it lets on-call engineers build explicit Markdown-based domain profiles. When a specific service drops, the engineer connects a dedicated team context that scopes exactly which directories, local deployment configurations, error logs, and read-only tools are in play — an airtight boundary the assistant works inside of.
 
 ## Why a Lightweight, Local-First Approach Works:
 
@@ -51,7 +53,9 @@ Instead of acting as a heavy background scraper, tools like [NeatContext](https:
 
 - Injecting Tribal Knowledge: LLMs don't naturally know cross-team boundaries or custom architecture quirks. Explicit context bundling allows teams to inject localized rules (e.g., "If the Payment Team hits an error here, the deployment data shows it must be escalated to the Infra Team").
 
-- Safety by Design: Desktop context assemblers are inherently read-only. They map data schemas and hand them to an LLM to generate an accurate diagnostic report or runbook suggestion. The engineer remains the critical "human-in-the-loop," executing the final validated commands.
+- Safety by Design: A desktop context organizer is inherently read-only. It hands over paths and read-only tools — never write authority — and keeps a local record of what was actually served. The assistant produces the diagnostic report or runbook suggestion; the engineer remains the critical "human-in-the-loop," executing the final validated commands.
+
+- No New Trust Decision: The context layer contains no AI model and stores no LLM credential, so adopting it does not mean sending your incident data somewhere new. It reaches the same assistant your organization already approved.
 
 ## Moving Forward
 
