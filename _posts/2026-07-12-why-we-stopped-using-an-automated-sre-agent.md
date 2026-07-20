@@ -43,7 +43,7 @@ Instead of letting an automated platform-level agent crawl our environment and d
 
 This is exactly why we shifted toward lightweight, desktop-first context utilities like [NeatContext](https://www.neatcontext.com).
 
-Note what this is *not*: it is not another AI. [NeatContext](https://www.neatcontext.com) runs no model of its own. It connects locally to the AI client the engineer is already working in and hands that client a scoped context. The reasoning still happens where it always did; only the inputs change.
+To be clear about what this is: [NeatContext](https://www.neatcontext.com) is not another AI, and it does not contain an AI model. It connects locally to the AI client the engineer is already working in and hands that client a scoped context. The reasoning still happens where it always did; only the inputs change.
 
 Instead of acting as a heavy background scraper, it lets on-call engineers build explicit Markdown-based domain profiles. When a specific service drops, the engineer connects a dedicated team context that scopes exactly which directories, local deployment configurations, error logs, and read-only tools are in play — an airtight boundary the assistant works inside of.
 
@@ -55,7 +55,7 @@ Instead of acting as a heavy background scraper, it lets on-call engineers build
 
 - Safety by Design: A desktop context organizer is inherently read-only. It hands over paths and read-only tools — never write authority — and keeps a local record of what was actually served. The assistant produces the diagnostic report or runbook suggestion; the engineer remains the critical "human-in-the-loop," executing the final validated commands.
 
-- No New Trust Decision: Because the context layer carries no model and no LLM credential of its own, adopting it does not mean sending your incident data somewhere new. It reaches the same assistant your organization already approved.
+- No New Trust Decision: The context layer contains no AI model and stores no LLM credential, so adopting it does not mean sending your incident data somewhere new. It reaches the same assistant your organization already approved.
 
 ## Moving Forward
 

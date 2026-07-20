@@ -77,7 +77,7 @@ NeatContext is a desktop app designed for operational work and incident handling
 
 It runs on your local machine. Your domain knowledge stays local unless you choose otherwise. Teams can organize the knowledge they need, add or remove context during an investigation, and connect to the systems they already use through extensions.
 
-One thing NeatContext deliberately is not: another AI to talk to. It has no chat window and no model of its own. You keep working in the AI client you already use — Claude Code, Codex CLI, Claude Desktop, or ChatGPT Desktop. NeatContext connects to it locally and hands it your team's context; your client reads, searches, and answers with its own model.
+One thing NeatContext deliberately is not: another AI to talk to. There is no chat window in the app, and no AI model inside it. You keep working in the AI client you already use — Claude Code, Codex CLI, Claude Desktop, or ChatGPT Desktop. NeatContext connects to it locally and hands it your team's context; your client reads, searches, and answers with its own model.
 
 The idea is simple:
 
@@ -105,7 +105,7 @@ Instead, it helps you assemble the right context when you need it.
 
 Different companies have different requirements for AI usage. Some standardize on one assistant. Some route everything through a company gateway. Some are still deciding.
 
-NeatContext stays out of that decision. Because it runs no model, there is no NeatContext endpoint to approve, no model configuration to manage, and no credential for an LLM stored in the app. Whatever AI your team is already allowed to use remains the AI that answers.
+NeatContext stays out of that decision. Since the app does not include an AI model, there is no NeatContext endpoint to approve, no model configuration to manage, and no LLM credential stored anywhere in it. Whatever AI your team is already allowed to use remains the AI that answers.
 
 You decide what systems to connect. You decide what knowledge to include. You decide which AI client receives it and how much of it is in scope for a given investigation. The context boundary is read-only: NeatContext hands over paths and read-only tools, never write access to your systems, and it keeps a local activity log of what was actually served.
 

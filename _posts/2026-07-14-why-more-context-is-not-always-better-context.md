@@ -107,7 +107,7 @@ This approach has several practical properties:
 
 This is the context model we have been exploring with [NeatContext](https://www.neatcontext.com): keep knowledge close to the teams and systems that own it, define a bounded working set for a specific task, and let the engineer decide what is in scope before their AI starts reasoning.
 
-Worth being precise about one design choice. NeatContext does not read your sources, rank them, or summarize them into a package with a model of its own — it has no model. It scopes the boundary and hands the selected profiles, folders, and read-only tools to the AI client the engineer is already using, which does the reading and the reasoning itself. That keeps a second model out of the chain of custody, avoids a summarization step nobody reviewed, and means the working set is defined by a person rather than inferred by a machine.
+Worth being precise about one design choice. NeatContext does not include an AI model, so it never reads your sources, ranks them, or summarizes them into a package before your AI sees them. It scopes the boundary and hands the selected profiles, folders, and read-only tools to the AI client the engineer is already using, which does the reading and the reasoning itself. That keeps a second model out of the chain of custody, avoids a summarization step nobody reviewed, and means the working set is defined by a person rather than inferred by a machine.
 
 The important part is not the product name. It is the separation of concerns:
 
