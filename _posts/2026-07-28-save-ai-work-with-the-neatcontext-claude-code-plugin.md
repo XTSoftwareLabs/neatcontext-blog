@@ -94,10 +94,6 @@ claude plugin install neatcontext@neatcontext --scope user
 
 Then restart Claude Code. (If you're already inside a session, you can run the same steps with `/plugin marketplace add` and `/plugin install`.) You'll need Claude Code 2.1.196 or later, and Node.js 18 or later. The NeatContext desktop app is only needed if you also want the more advanced team contexts it manages.
 
-## Where your knowledge is stored
-
-Everything a saved context needs — the profile and the knowledge folder — is stored locally on your computer, under `~/.neatcontext/lite`. The plugin only runs the Node.js code included in the repository, and it does not make outbound internet requests on its own. Its desktop app connection talks to NeatContext over `127.0.0.1` (your own machine). You can read the full details in the project's [privacy policy](https://github.com/XTSoftwareLabs/neatcontext-plugins/blob/main/PRIVACY.md).
-
 ## Why this matters beyond one person
 
 Save one investigation and you save yourself some time later. Do it regularly, across a whole team, and something bigger builds up: a team library, made entirely out of the AI conversations people were already having anyway. Every debugging session, every planning chat, every "why does this service behave like that" conversation becomes a small, saved piece of knowledge instead of something that disappears. Import a teammate's saved context with `/neatcontext:import`, and their hard-won knowledge becomes yours too — no meeting required, no wiki page to write from scratch.
