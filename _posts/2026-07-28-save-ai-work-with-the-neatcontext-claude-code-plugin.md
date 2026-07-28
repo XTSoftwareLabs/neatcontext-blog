@@ -21,6 +21,14 @@ The problem is where that knowledge ends up:
 
 So teams end up doing one of two things: explaining the same background over and over, or losing it completely once the person who knows it moves to a different task. Either way, the next person — or even the same person, weeks later — starts over.
 
+## This is a different problem from "the chat got too long"
+
+A lot of effort right now goes into a related but different problem: keeping one long conversation working well. As a chat grows, it fills up the AI's context window, so tools compact it — they quietly summarize older messages to make room for new ones. Other tools focus on handoff — packing up a conversation so a new session (or a teammate) can pick it up where you left off. These are all useful, and they solve a real pain point.
+
+But notice what they are optimizing for: keeping *this one conversation* alive and coherent a bit longer. They are not really about what happens after the conversation is done. Once you close the chat, a compacted summary or a handoff file still lives inside that one thread. It does not become something the next unrelated conversation — next week, next month, or a teammate's chat — can start from.
+
+NeatContext looks at the problem from a different angle. Instead of asking "how do we keep this one conversation going longer," it asks "what did we figure out in this conversation that is worth keeping around, for good, for anyone who needs it?" That is a smaller, more focused question, and it leads to a smaller, more focused answer: pull out the knowledge, save it outside the chat, and make it reusable everywhere — not just inside the thread it came from.
+
 ## What NeatContext does about it
 
 NeatContext pulls the useful knowledge out of a Claude Code conversation and saves it as a small, reusable package. It has two parts: a profile with the rules and habits that shaped how Claude worked, and a knowledge folder with the guides, findings, and notes worth keeping. It is not the whole chat — just the part that will actually help next time.
@@ -92,7 +100,9 @@ Everything a saved context needs — the profile and the knowledge folder — is
 
 ## Why this matters beyond one person
 
-This plugin solves a smaller, more personal version of a problem we've written about before: [why more context is not always better context](https://blog.neatcontext.com/ai/2026/07/14/why-more-context-is-not-always-better-context/) and [how to build efficient context for your AI client](https://blog.neatcontext.com/guide/2026/07/22/how-to-build-efficient-context-for-ai-clients/). Good context needs rules, knowledge, and a way to pull in current facts — and one of the best sources of real, team-specific knowledge is the work your team has *already done* with an AI. NeatContext keeps that knowledge around instead of throwing it away, and makes it easy to share instead of leaving it stuck in one person's chat history.
+Save one investigation and you save yourself some time later. Do it regularly, across a whole team, and something bigger builds up: a team library, made entirely out of the AI conversations people were already having anyway. Every debugging session, every planning chat, every "why does this service behave like that" conversation becomes a small, saved piece of knowledge instead of something that disappears. Import a teammate's saved context with `/neatcontext:import`, and their hard-won knowledge becomes yours too — no meeting required, no wiki page to write from scratch.
+
+That library only grows richer over time, and it grows without extra work, because it comes from conversations your team was going to have anyway. This is a smaller, more personal version of a problem we've written about before: [why more context is not always better context](https://blog.neatcontext.com/ai/2026/07/14/why-more-context-is-not-always-better-context/) and [how to build efficient context for your AI client](https://blog.neatcontext.com/guide/2026/07/22/how-to-build-efficient-context-for-ai-clients/). Good context needs rules, knowledge, and a way to pull in current facts — and one of the best sources of real, team-specific knowledge is the work your team has *already done* with an AI. NeatContext keeps that knowledge around instead of throwing it away, and turns everyday conversations into something the whole team can keep using.
 
 ## Try it
 
