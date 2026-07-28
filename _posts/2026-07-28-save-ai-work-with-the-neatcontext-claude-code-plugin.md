@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Stop Losing Your Best AI Work: Introducing the NeatContext Plugin for Claude Code"
+title: "Introducing the NeatContext Plugin for Claude Code"
 date: 2026-07-28
 categories: product
 ---
 
-You have had this moment before. You spend an hour with Claude Code working through a hard production issue. You check traces, rule out wrong guesses, and finally find the real cause. You fix it. You close the chat. Three weeks later, a similar issue shows up. It's someone else's turn to be on call this time, and they start from zero. All the hard work from before is gone — or it's buried in a chat history that nobody will think to search.
+Long conversations with an AI run into a real wall: the context window fills up. Once that happens, the chat has to be compacted — older messages get quietly summarized away just to make room for new ones — or the conversation has to be handed off to a fresh session. That keeps things moving, but it doesn't solve the bigger issue underneath it: even a conversation that never hits that wall still disappears once you close it. You spend an hour with Claude Code working through a hard production issue. You check traces, rule out wrong guesses, and finally find the real cause. You fix it. You close the chat. Three weeks later, a similar issue shows up. It's someone else's turn to be on call this time, and they start from zero. All the hard work from before is gone — or it's buried in a chat history that nobody will think to search.
 
 This is the problem [neatcontext-plugins](https://github.com/XTSoftwareLabs/neatcontext-plugins) is built to fix. It is a Claude Code plugin — [NeatContext for Claude Code](https://github.com/XTSoftwareLabs/neatcontext-plugins) — and it solves one specific problem: **the useful work and knowledge you build up during an AI conversation gets lost once the conversation ends.**
 
