@@ -9,7 +9,7 @@ A lot of AI tools now ship "memory": the assistant quietly writes facts about yo
 
 Say an engineer tells Claude, mid-incident, "this is probably the connection pool again." Memory files that away as a fact. Three weeks later, a different engineer asks about a slow endpoint on a different service, and the assistant opens with the connection pool theory — not because it's true this time, but because memory says it's true, generally. Nobody approved that. It just accumulated, the way a rumor accumulates, and now it shapes every answer that follows.
 
-## The problem isn't only accuracy. It's that no one can check it.
+## The problem isn't only accuracy — it's that nothing gets checked.
 
 Every source of information is wrong sometimes — runbooks, wikis, people. That's not unusual. What's unusual about a memory database is that there's no step where a human looks at a fact before the AI starts treating it as ground truth. The same model that might get an answer wrong is also the one deciding what's worth remembering, writing it to a store you don't naturally read, and retrieving it later with full confidence. Errors don't get caught. They compound, quietly, inside a place you can't easily open up and diff.
 
