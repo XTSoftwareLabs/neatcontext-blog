@@ -147,4 +147,4 @@ Same PR, same review, same merge. Whoever pulls the repo next — a third engine
 
 None of this is exotic. It's the same trust model your team already applies to the code it ships. The only thing that changes is applying it to the knowledge an AI reasons from, instead of leaving that knowledge to accumulate, unreviewed, in a database.
 
-Give it a try: the plugin is open source at [github.com/XTSoftwareLabs/neatcontext-plugins](https://github.com/XTSoftwareLabs/neatcontext-plugins), and the desktop app's [team library](https://docs.neatcontext.com/features/library#the-team-library-optional-read-only) covers the same idea for context beyond a single Claude Code chat. We would love your feedback.
+Give it a try: the plugin is open source at [github.com/XTSoftwareLabs/neatcontext-plugins](https://github.com/XTSoftwareLabs/neatcontext-plugins). We would love your feedback.
