@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Trust Your Team's Context, Not an AI Memory Database"
+title: "Trust Your Team's Domain Knowledge, Not an AI Memory Database"
 date: 2026-08-06
 categories: product
 ---
